@@ -1,0 +1,16 @@
+<h1>Articles#new</h1>
+<%= form_with model: @article, url: :articles, local: true do |f| %>
+  <div class="">
+    <div class="">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "" %>
+    </div>
+    <div class="">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "" %>
+    </div>
+    <div class=".actions">
+      <%= f.submit class: "" %>
+    </div>
+  </div>
+<% end %>
