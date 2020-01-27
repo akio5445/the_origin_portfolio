@@ -26,4 +26,11 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  # ログイン済みユーザーかどうか確認
+  private def logged_in_user
+    unless logged_in?
+      redirect_to :login
+    end
+  end
 end

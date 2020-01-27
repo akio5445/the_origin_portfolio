@@ -1,0 +1,9 @@
+<% article_comments.each do |article_comment| %>
+  <% unless article_comment.id.nil? %>
+    <p><%= link_to "@#{article_comment.user.name}さん", user_path(article_comment.user.id) %></p>
+    <p>comment: <%= article_comment.content %></p>
+    <% if article_comment.user == current_user %>
+      <p><%= link_to 'Delete', article_article_comment_path(article_comment.article_id, article_comment.id), method: :delete, remote: true %></p>
+    <% end %>
+  <% end %>
+<% end %>
