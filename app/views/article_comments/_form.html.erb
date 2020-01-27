@@ -1,0 +1,8 @@
+<%= form_with(model: [article, article_comment] ) do |form| %>
+  <div class="">
+    <%= form.text_area :content, class: "" %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Comment", class: "button" %>
+  </div>
+<% end %>
