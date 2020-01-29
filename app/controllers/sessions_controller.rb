@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
+  # ログインしているか
   skip_before_action :logged_in_user, only: [:new, :create]
 
-  def new                                       #　ログイン画面
+  def new                              #　ログイン画面
   end
 
   def create

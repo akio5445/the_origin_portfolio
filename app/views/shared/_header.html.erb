@@ -1,15 +1,15 @@
 <header>
-  <div class="logo">
-    <%= link_to "THE ORIGIN", root_path, class: "logo" %>
-  </div>
+  <nav>
+    <ul>
+      <li class="logo"><%= link_to "THE ORIGIN", root_path, class: "header_button" %></li>
+      <li><%= link_to "記事一覧", :articles, class: "header_button" %></li>
 
-  <div class="header">
-    <%= link_to "記事一覧", :articles, class: "header_button" %>
-    <% if current_user %>
-      <%= link_to "ログアウト", :logout, method: :delete, class: "header_button" %>
-      <%= link_to "アカウント", user_path(current_user), class: "header_button"  %>
-    <% else %>
-      <%= link_to "ログイン", :login, class: "header_button" %>
-    <% end %>
-  </div>
+      <% if current_user %>
+        <li><%= link_to "ログアウト", :logout, method: :delete, class: "header_button" %></li>
+        <li><%= link_to "アカウント", user_path(current_user), class: "header_button"  %></li>
+      <% else %>
+        <li><%= link_to "ログイン", :login, class: "header_button" %></li>
+      <% end %>
+    </ul>
+  </nav>
 </header>

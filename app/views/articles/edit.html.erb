@@ -1,2 +1,9 @@
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<div class="container">
+<%= form_with model: @article, local: true do |f| %>
+      <p><%= f.label :タイトル %></p>
+      <p><%= f.text_field :title, class: "text_field_title" %></p>
+      <p><%= f.label :記事 %></p>
+      <p><%= f.text_area :description %></p>
+      <p><%= f.submit class: "button" %></p>
+<% end %>
+</div>

@@ -5,12 +5,13 @@ class ArticlesController < ApplicationController
 
   def index                            # 記事一覧画面
     @article = Article.new
-    @articles = Article.all
+    @articles = Article.all.order(create_at: :desc)
   end
 
   def show                             # 記事表示画面
     @article_comment = ArticleComment.new
     @article_comments = @article.article_comments
+    @articles = Article.all.order(create_at: :desc)
   end
 
   def edit                             # 記事編集画面
@@ -32,7 +33,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: "記事を更新したよ！( *´艸｀)"
+      redirect_to user_path(current_user), notice: "記事を更新したよ！( *´艸｀)"
     else
       @articles = Article.all
       @user = User.find(current_user.id)
@@ -42,7 +43,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to :articles, notice: "綺麗に消せたよ！( *´艸｀）"
+    redirect_to user_path(current_user), notice: "綺麗に消せたよ！( *´艸｀）"
   end
 
   private

@@ -1,3 +1,14 @@
-<div>
-  <%= link_to "記事を書く", :new_article, class: "button" %>
-</div>
+<p class="user"><%= "ニックネーム　　　　 #{@user.name}" %></p>
+<p class="user"><%= "メールアドレス #{@user.email}" %></p>
+<% @user.articles.each do |article| %>
+  <div class="container_show">
+    <div class="container_article">
+        <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3>
+        <div class="article_body"><%= article.description %></div>
+    </div>
+      <%= link_to "編集", edit_article_path(article), class: "button" %>
+      <%= link_to "削除", article_path(article), method: :delete, date:
+          { confirm: "本当にいいの( *´艸｀)？"}, class: "button"%>
+      <%= link_to "記事を書く", :new_article, class: "button" %>
+  </div>
+<% end %>
