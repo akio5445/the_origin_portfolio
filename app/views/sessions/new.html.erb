@@ -1,11 +1,14 @@
-<h1>Sessions#new</h1>
-<h1>ログイン</h1>
-<%= form_with scope: :session, local: true do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Log in", class: "submit_button"%>
-<% end %>
+<div class="container">
+  <div class="container_article">
+    <h1 class="login_h1">ログイン</h1>
+    <%= form_with scope: :session, local: true do |f| %>
+      <p><%= f.label :email %></p>
+      <p><%= f.email_field :email %></p>
+      <p><%= f.label :password %></p>
+      <p><%= f.password_field :password %></p>
+      <p><%= f.submit "Log in", class: "button"%>
+    <% end %>
 
-<%= link_to "新規登録", new_user_path, class: "button" %>
+    <%= link_to "新規登録", new_user_path, class: "button" %>
+  </div>
+</div>

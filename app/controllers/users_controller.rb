@@ -5,13 +5,11 @@ class UsersController < ApplicationController
       :show, :edit, :update, :destroy]
 
   def show                               # user詳細画面
+    @article = Article.new
   end
 
   def new                                #　新規登録画面
     @user = User.new
-  end
-
-  def edit                               # user編集画面
   end
 
   def create                             # 新規登録

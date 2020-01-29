@@ -13,3 +13,225 @@
  *= require_tree .
  *= require_self
  */
+body {
+    margin: 0;
+    background-image: url("932_0.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    font-family: arial, sans-serif;
+    z-index: 0;
+}
+a {
+    text-decoration: none;
+}
+a:link {
+    color: #4a4a4a;
+}
+a:visited {
+    color: goldenrod;
+}
+a:hover {
+    color: goldenrod;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.4);
+    transition: all 0.7s ease-out;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    margin: 0;
+    padding: 15px 15px 0 15px;
+}
+nav li {
+    padding-right: 7px;
+}
+nav li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #2E2F30;
+    font-weight: bold;
+    background: rgba(255,255,255,0.5);
+    border-radius: 20px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+    font-weight: bolder;
+    font-size: 15px;
+}
+nav li a:hover {
+    background: rgba(255,255,255,0.5);
+    border-radius: 50px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+    transition: all 0.7s ease-out;
+}
+nav li.logo {
+    margin-right: auto;
+}
+textarea {
+    width: 440px;
+    height: 700px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+}
+/*ボタン*/
+.button {
+    background: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+    font-weight: bolder;
+    font-size: 13px;
+    padding: 4px;
+}
+.button:hover {
+    color: goldenrod;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.4);
+    transition: all 0.7s ease-out;
+}
+/*コンテンツ*/
+.container_show {
+    margin: 20px auto 0 auto;
+    padding: 32px;
+    max-width: 750px;
+    border-radius: 12px;
+    z-index: 1;
+    background-image: url("932_0.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.4);
+}
+.container_show:hover {
+    margin: 20px auto 0 auto;
+    padding: 32px;
+    max-width: 750px;
+    border-radius: 12px;
+    z-index: 1;
+    background-image: url("932_0.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    box-shadow: inset 0 0 6px 7px rgba(0,0,0,0.5);
+}
+.container {
+    display: flex;
+    margin: 20px auto 0 auto;
+    padding: 32px;
+    max-width: 750px;
+    border-radius: 12px;
+    z-index: 1;
+    background-image: url("932_0.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.4);
+}
+.container:hover {
+    margin: 20px auto 0 auto;
+    padding: 32px;
+    max-width: 750px;
+    border-radius: 12px;
+    z-index: 1;
+    background-image: url("932_0.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    box-shadow: inset 0 0 6px 7px rgba(0,0,0,0.5);
+}
+
+.container_article {
+    flex: 0 0 450px;
+    margin: 8px auto 0 0;
+    padding: 25px;
+    max-width: 450px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.4);
+}
+.article_title {
+    overflow-wrap: break-word;
+    font-weight: bold;
+    padding: 10px;
+    border-top: 1px solid #2097B6;
+    border-left: 4px solid #2097B6;
+}
+.article_body {
+    overflow-y: scroll;
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding: 5px 5px 0 5px;
+    width: 440px;
+    height: 200px;
+    box-shadow: inset 0 0 6px 2px rgba(0,0,0,0.2);
+}
+.container_article:hover {
+    border-radius: 16px;
+    background: rgba(255,255,255,0.8);
+    transition: all 0.7s ease-out;
+}
+.article_body_show {
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding: 5px 5px 0 5px;
+    width: 440px;
+    height: auto;
+}
+.container_index {
+    opacity: 0.6;
+    margin: 8px;
+    max-width: 250px;
+    padding: 20px 20px 20px 25px;
+    flex: 1 1 auto;
+    white-space: normal;
+}
+.container_index:hover {
+    opacity: 1;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+    transition: all 0.7s ease-out;
+}
+#side_article {
+    font-size: 12px;
+}
+
+.user {
+    text-align: center;
+    padding-right: 550px;
+    color: #666666;
+    font-family: arial, sans-serif;
+}
+.text_field_title {
+    font-size: 16px;
+    width: 725px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+}
+.article_comment_area {
+    max-width: 200px;
+    max-height: 60px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+}
+#delete_button{
+    background: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+    font-weight: bolder;
+    font-size: 13px;
+    padding: 4px;
+    color: #666666;
+}
+.comment {
+    font-size: 10px;
+}
+
+/*ログイン画面*/
+.login_h1 {
+    perspective: 500px;
+    transition: all 3s ease-in;
+}
+
+.login_h1:hover {
+    color: goldenrod;
+    padding: 40px;
+    font-size: 90px;
+    border-radius: 300px;
+    box-shadow: 0 3px 10px 1000px rgba(0,0,0,0.4);
+}
