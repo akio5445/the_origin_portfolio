@@ -3,6 +3,6 @@ class TopController < ApplicationController
   skip_before_action :logged_in_user
 
   def index
-    @articles = Article.all.order(create_at: :desc)
+    @articles = Article.all.recent
   end
 end

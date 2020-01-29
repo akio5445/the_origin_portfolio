@@ -5,13 +5,14 @@ class ArticlesController < ApplicationController
 
   def index                            # 記事一覧画面
     @article = Article.new
-    @articles = Article.all.order(create_at: :desc)
+    # scope -> :recent, order(create_at: :desc)
+    @articles = Article.all.recent
   end
 
   def show                             # 記事表示画面
     @article_comment = ArticleComment.new
     @article_comments = @article.article_comments
-    @articles = Article.all.order(create_at: :desc)
+    @articles = Article.all.recent
   end
 
   def edit                             # 記事編集画面
