@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :users
   resources :articles do
     resources :article_comments
+    resource :favorites, only: [:create, :destroy]
   end
-  resources :favorites, only: [:create, :destroy]
 end
