@@ -9,9 +9,15 @@
           <%= render 'articles/favorite', article: article %>
         </div>
       </div>
+      <div>
+        <hr>
+        <!-- ページネーション -->
+        <%= paginate @articles %>
+      </div>
     <% end %>
   </div>
   <div class="container_index">
+    <%= render "shared/sns" %>
   　　　　  <!-- 検索フォーム -->
     <%= render "articles/search", articles: @articles %>
   </div>
