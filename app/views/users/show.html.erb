@@ -4,7 +4,7 @@
   <div class="container_show">
     <div class="container_article">
         <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3>
-        <div class="article_body"><%= article.description %></div>
+        <div class="article_body"><%= markdown(article.description).html_safe %></div>
     </div>
       <%= link_to "編集", edit_article_path(article), class: "button" %>
       <%= link_to "削除", article_path(article), method: :delete, date:
