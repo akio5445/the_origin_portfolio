@@ -66,17 +66,28 @@ describe "記事投稿機能", type: :system do
         end
       end
 
-      #context "新規作成画面でタイトルを入力しなかった時" do
-      #  let(:article_title) { "" }
-      #  let(:article_description) { "新規作成の本文を書く" }
-      #
-      #  it "エラーとなる" do
-      #    within "#error_explanation" do
-      #      expect(page).to have_content "タイトルを入力してください"
-      #    end
-      #    expect(page).to have_selector ".article_body", text: "新規作成の本文を書く"
-      #  end
-      #end
+      context "新規作成画面で何も入力しなかった時" do
+        let(:article_title) { "" }
+        let(:article_description) { "" }
+
+        it "エラーとなる" do
+          within "#error_explanation" do
+            expect(page).to have_content "Title"
+            expect(page).to have_content "Description"
+          end
+        end
+      end
+      context "新規作成画面で何も入力しなかった時" do
+        let(:article_title) { "" }
+        let(:article_description) { "" }
+
+        it "エラーとなる" do
+          within "#error_explanation" do
+            expect(page).to have_content "Title"
+            expect(page).to have_content "Description"
+          end
+        end
+      end
 
     end
 
