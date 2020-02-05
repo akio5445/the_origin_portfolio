@@ -1,10 +1,17 @@
 <!-- いいね機能 -->
-<% if article.favorited_by?(current_user) %>
-  <%= link_to article_favorites_path(article, redirect_id: 0), method: :delete, remote: true do %>
-    <span class="">(; ･`д･´)☆素敵!<%= article.favorites.count %></span>
+<div class="article_<%= article.id %>">
+  <!-- いいね機能 -->
+  <% if current_user %>
+    <% if article.favorited_by?(current_user) %>
+      <%= link_to article_favorites_path(article, redirect_id: 0), method: :delete, remote: true do %>
+        <span class="">(; ･`д･´)☆素敵!<%= article.favorites.count %></span>
+      <% end %>
+    <% else %>
+      <%= link_to article_favorites_path(article, redirect_id: 0), method: :post, remote: true do %>
+        <span class="">(; ･`д･´)★素晴ら!<%= article.favorites.count %></span>
+      <% end %>
+    <% end %>
+  <% else %>
+    (・∀・)ｲｲﾈ!!☆<%= article.favorites.count %>
   <% end %>
-<% else %>
-  <%= link_to article_favorites_path(article, redirect_id: 0), method: :post, remote: true do %>
-    <span class="">(; ･`д･´)★素晴ら!<%= article.favorites.count %></span>
-  <% end %>
-<% end %>
+</div>

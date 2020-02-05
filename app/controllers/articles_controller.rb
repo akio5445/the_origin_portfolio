@@ -1,24 +1,36 @@
 class ArticlesController < ApplicationController
   # ログインしているか
-  skip_before_action :logged_in_user, only: [:index, :show]
+  skip_before_action :logged_in_user, only: [:index, :show, :search]
   before_action :set_article, only: [:show, :edit, :update, :destroy,]
 
-  def index                            # 記事一覧画面
+  def index                              # 記事一覧画面
     @article = Article.new
-    # scope -> :recent, order(create_at: :desc)
-    @articles = Article.all.recent
+    #　検索フォーム
+    @articles = Article.search(params[:search])
+    # ページネーション
+    @articles = @articles.page(params[:page])
+    # ランキング
+    @all_ranks = Article.create_all_ranks
+    # OPTIMIZE 自分のランキング
+    @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
   end
 
-  def show                             # 記事表示画面
+  def show                               # 記事表示画面
+    # コメント
     @article_comment = ArticleComment.new
     @article_comments = @article.article_comments
-    @articles = Article.all.recent
+    #　検索フォーム
+    @articles = Article.search(params[:search])
+    # ランキング
+    @all_ranks = Article.create_all_ranks
+    # OPTIMIZE 自分のランキング
+    @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
   end
 
-  def edit                             # 記事編集画面
+  def edit                               # 記事編集画面
   end
 
-  def new                              # 記事作成画面
+  def new                                # 記事作成画面
     @article = Article.new
   end
 
@@ -26,7 +38,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "記事「#{@article.title}」作成したよ！( *´艸｀)"
     else
       render 'new'
     end

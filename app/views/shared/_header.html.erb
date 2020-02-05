@@ -2,6 +2,7 @@
   <nav>
     <ul>
       <li class="logo"><%= link_to "THE ORIGIN", root_path, class: "header_button" %></li>
+      <p class="alert_success"><%= flash.notice if flash.notice.present? %></p>
       <li><%= link_to "記事一覧", :articles, class: "header_button" %></li>
 
       <% if current_user %>

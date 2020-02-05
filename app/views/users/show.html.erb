@@ -8,7 +8,7 @@
     </div>
       <%= link_to "編集", edit_article_path(article), class: "button" %>
       <%= link_to "削除", article_path(article), method: :delete, date:
-          { confirm: "本当にいいの( *´艸｀)？"}, class: "button"%>
+          { confirm: "「#{article.title}」を消すよ。本当にいいの( *´艸｀)？"}, class: "button"%>
       <%= link_to "記事を書く", :new_article, class: "button" %>
   </div>
 <% end %>
