@@ -3,10 +3,8 @@
   <div class="container_article">
     <h3 class="article_title"><%= @article.title %></h3>
     <div class="article_body_show"><%= markdown(@article.description).html_safe %></div><hr>
-    <div class="article_<%= @article.id %>">
-    　　　  <!-- いいね機能 -->
-      <%= render 'articles/favorite', article: @article %>
-    </div>
+          <!-- いいね機能 -->
+    <%= render 'articles/favorite', article: @article %>
     <div id="article_comments_area">
    　　　   <!-- 投稿されたコメント一覧を表示 -->
       <%= render partial: 'article_comments/index', locals: { article_comments: @article_comments } %>
@@ -23,5 +21,9 @@
     <%= render "shared/sns" %>
   　　　　　  <!-- 検索フォーム -->
     <%= render "articles/search", articles: @articles %>
+    <!-- ランキング -->
+    <%= render "articles/ranking", all_ranks: @all_ranks %>
+    　　　　　　<!-- 自分の評価したランキング -->
+    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
   </div>
 </div>
