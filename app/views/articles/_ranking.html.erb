@@ -1,7 +1,7 @@
 <!-- ランキング -->
 <div class="ranking_side_index">
   <% all_ranks.each.with_index(1) do |article, i| %>
-    <%= "素敵度 #{i}位" %>
+    <%= "☆素敵度 #{i}位" %>
     <li><%= link_to article.title, article %></li>
   <% end %>
 </div>

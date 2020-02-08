@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
     @all_ranks = Article.create_all_ranks
     # OPTIMIZE 自分のランキング
     @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+    #　月別アーカイブ
+    @user = User.find(current_user.id)
+    @archives = @user.make_archive
   end
 
   def show                               # 記事表示画面
@@ -25,6 +28,9 @@ class ArticlesController < ApplicationController
     @all_ranks = Article.create_all_ranks
     # OPTIMIZE 自分のランキング
     @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+    #　月別アーカイブ
+    @user = User.find(current_user.id)
+    @archives = @user.make_archive
   end
 
   def edit                               # 記事編集画面
@@ -38,25 +44,30 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      redirect_to @article, notice: "記事「#{@article.title}」作成したよ！( *´艸｀)"
+      flash.notice = "記事「#{@article.title}」作成したよ！( *´艸｀)"
+      redirect_to @article
     else
+      flash.now.alert = "登録に失敗しました！"
       render 'new'
     end
   end
 
   def update
     if @article.update(article_params)
-      redirect_to user_path(current_user), notice: "記事を更新したよ！( *´艸｀)"
+      flash.notice = "記事を更新したよ！( *´艸｀)"
+      redirect_to user_path(current_user)
     else
       @articles = Article.all
       @user = User.find(current_user.id)
+      flash.now.alert = "登録に失敗しました！"
       render action: :index
     end
   end
 
   def destroy
     @article.destroy
-    redirect_to user_path(current_user), notice: "綺麗に消せたよ！( *´艸｀）"
+    flash.notice = "綺麗に消せたよ！( *´艸｀）"
+    redirect_to user_path(current_user)
   end
 
   private
