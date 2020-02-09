@@ -9,10 +9,11 @@ class Article < ApplicationRecord
   # タイトル検索用メソッド
   has_many :favorites
 
-  def self.create_all_ranks #articleクラスからデータを取ってくる処理なのでクラスメソッド！
+  def self.create_all_ranks # articleクラスからデータを取ってくる処理なのでクラスメソッド！
     Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
   end
-  def self.search(search) #クラスメソッド！
+
+  def self.search(search)
     return Article.all.order(create_at: :desc) unless search
     Article.where(['title LIKE ?', "%#{search}%"],)
   end

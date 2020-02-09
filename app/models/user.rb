@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  validates :name, presence: { message: 'が空欄だよ？' }
+  validates :email, presence: { message: 'が空欄だよ？' }
+  validates :password, presence: { message: 'きゃんとびいぶらんく☆' }
   # 多くの記事と関連、諸共削除
   has_many :articles, dependent: :destroy
   # 多くの記事コメントと関連、諸共削除
@@ -9,4 +12,5 @@ class User < ApplicationRecord
   # また、存在性と値が一致するかどうかのバリデーションも追加される 。
   # authenticateメソッド追加（引数の文字列がパスワードと一致するとUserオブジェクトを、間違っているとfalseを返すメソッド）。
   has_secure_password
+  has_many :favorites
 end
