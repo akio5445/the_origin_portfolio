@@ -11,11 +11,13 @@ class ArticlesController < ApplicationController
     @articles = @articles.page(params[:page])
     # ランキング
     @all_ranks = Article.create_all_ranks
-    # OPTIMIZE 自分のランキング
-    @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
-    #　月別アーカイブ
-    @user = User.find(current_user.id)
-    @archives = @user.make_archive
+    if logged_in?
+      # 自分のランキング
+      @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+      #　月別アーカイブ
+      @user = User.find(current_user.id)
+      @archives = @user.make_archive
+    end
   end
 
   def show                               # 記事表示画面
@@ -26,11 +28,13 @@ class ArticlesController < ApplicationController
     @articles = Article.search(params[:search])
     # ランキング
     @all_ranks = Article.create_all_ranks
-    # OPTIMIZE 自分のランキング
-    @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
-    #　月別アーカイブ
-    @user = User.find(current_user.id)
-    @archives = @user.make_archive
+    if logged_in?
+      # 自分のランキング
+      @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+      #　月別アーカイブ
+      @user = User.find(current_user.id)
+      @archives = @user.make_archive
+    end
   end
 
   def edit                               # 記事編集画面
@@ -55,12 +59,12 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       flash.notice = "記事を更新したよ！( *´艸｀)"
-      redirect_to user_path(current_user)
+      redirect_to @article
     else
       @articles = Article.all
       @user = User.find(current_user.id)
       flash.now.alert = "登録に失敗しました！"
-      render action: :index
+      render "edit"
     end
   end
 

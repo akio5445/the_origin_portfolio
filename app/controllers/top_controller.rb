@@ -9,10 +9,12 @@ class TopController < ApplicationController
     @articles = @articles.page(params[:page])
     # ランキング
     @all_ranks = Article.create_all_ranks
-    # OPTIMIZE 自分のランキング
-    @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
-    #　月別アーカイブ
-    @user = User.find(current_user.id)
-    @archives = @user.make_archive
+    if logged_in?
+      # 自分のランキング
+      @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+      #　月別アーカイブ
+      @user = User.find(current_user.id)
+      @archives = @user.make_archive
+    end
   end
 end

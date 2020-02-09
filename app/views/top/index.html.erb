@@ -1,19 +1,33 @@
 <div class="container">
   <div class="container_article">
-    <% @articles.each do |article| %>
-      <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3>
-      <div class="article_body"><%= markdown(article.description).html_safe %></div>
-      <div class="comment">
-        コメント数: <%= ArticleComment.where(article_id: article.id).count %>
-        <!-- いいね機能 -->
-        <%= render 'articles/favorite', article: article %>
-      </div>
-      <div>
-        <hr>
-        <!-- ページネーション -->
-        <%= paginate @articles %>
-      </div>
-    <% end %>
+    <table>
+      <% unless current_user %>
+        <tr>
+          <div class="about">
+            <h2>＃ Welcome!</h2>
+            <p>このサイトはプログラミング関連の記事を観覧作成出来ます！</p>
+            <p>ちょっとしたメモ帳替わり！日々のアウトプットのため！</p>
+            <p>なんでも気軽に載せてください！</p>
+            <p>記事の投稿、記事へのコメントは適当にログインしてくださいね！</p><hr>
+          </div>
+        </tr>
+      <% end %>
+      <tr><% @articles.each do |article| %>
+        <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3>
+        <div class="article_body"><%= markdown(article.description).html_safe %></div>
+        <div class="comment">
+          コメント数: <%= ArticleComment.where(article_id: article.id).count %>
+          <!-- いいね機能 -->
+          <%= render 'articles/favorite', article: article %>
+        </div>
+        <div>
+          <hr>
+          <!-- ページネーション -->
+          <%= paginate @articles %>
+        </div>
+          </tr>
+      <% end %>
+    </table>
   </div>
   <div class="container_index">
     <%= render "shared/sns" %>
@@ -21,9 +35,11 @@
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
-    <!-- 自分の評価したランキング -->
-    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
-    <!-- 月別アーカイブ -->
-    <%= render "users/archive", archives: @archives %>
+    <% if current_user %>
+      <!-- 自分の評価したランキング -->
+      <%= render "articles/my_ranking", my_ranks: @my_ranks %>
+      <!-- 月別アーカイブ -->
+      <%= render "users/archive", archives: @archives %>
+    <% end %>
   </div>
 </div>

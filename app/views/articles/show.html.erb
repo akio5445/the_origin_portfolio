@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="container_article">
     <h3 class="article_title"><%= @article.title %></h3>
@@ -23,9 +22,11 @@
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
-    <!-- 自分の評価したランキング -->
-    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
-    <!-- 月別アーカイブ -->
-    <%= render "users/archive", archives: @archives %>
+    <% if current_user %>
+      <!-- 自分の評価したランキング -->
+      <%= render "articles/my_ranking", my_ranks: @my_ranks %>
+      <!-- 月別アーカイブ -->
+      <%= render "users/archive", archives: @archives %>
+    <% end %>
   </div>
 </div>

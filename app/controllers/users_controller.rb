@@ -1,21 +1,20 @@
 class UsersController < ApplicationController
   # ログインしているか
   skip_before_action :logged_in_user, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :archives]
 
   def archives
-    @user = User.find(params[:id])
-    @yyyymm = params[:yyyymm]
+    @yyyymm = params[:yyyymm]# 過去ログ一覧用
     @articles = @user.articles.where("strftime('%Y%m', articles.created_at) = '"+@yyyymm+"'")
                     .paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     @archives = @user.make_archive
-
+    # 検索フォーム
     @articles = Article.search(params[:search])
     # ページネーション
     @articles = @articles.page(params[:page])
     # ランキング
     @all_ranks = Article.create_all_ranks
-    # OPTIMIZE 自分のランキング
+    # 自分のランキング
     @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
   end
 

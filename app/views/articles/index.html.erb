@@ -10,19 +10,21 @@
       </div>
     <% end %>
     <div><hr>
-          <!-- ページネーション -->
+      <!-- ページネーション -->
       <%= paginate @articles %>
     </div>
   </div>
   <div class="container_index">
     <%= render "shared/sns" %>
-          <!-- 検索フォーム -->
+    <!-- 検索フォーム -->
     <%= render "articles/search", articles: @articles %>
-          <!-- ランキング -->
+    <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
-    　　　　　<!-- 自分の評価したランキング -->
-    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
-           <!-- 月別アーカイブ -->
-    <%= render "users/archive", archives: @archives %>
+    <% if current_user %>
+      <!-- 自分の評価したランキング -->
+      <%= render "articles/my_ranking", my_ranks: @my_ranks %>
+      <!-- 月別アーカイブ -->
+      <%= render "users/archive", archives: @archives %>
+    <% end %>
   </div>
 </div>
