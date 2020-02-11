@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  # ログインしているか
   skip_before_action :logged_in_user, only: [:index, :show, :search]
   before_action :set_article, only: [:show, :edit, :update, :destroy,]
 
@@ -52,7 +51,7 @@ class ArticlesController < ApplicationController
       redirect_to @article
     else
       flash.now.alert = "登録に失敗しました！"
-      render 'new'
+      render :new
     end
   end
 
@@ -64,7 +63,7 @@ class ArticlesController < ApplicationController
       @articles = Article.all
       @user = User.find(current_user.id)
       flash.now.alert = "登録に失敗しました！"
-      render "edit"
+      render :edit
     end
   end
 
