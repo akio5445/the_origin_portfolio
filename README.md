@@ -28,7 +28,6 @@
     * "kaminari" ( ページネーション )
     * "redcarpet", "~> 2.3.0" ( マークダウン記法 )
     * "coderay"　( コード着色 )
-
   #### フロントエンド
   * CSS
   * JavaScript
