@@ -1,24 +1,20 @@
-# README
+# The origin - 記事投稿サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 説明
 
-Things you may want to cover:
+* The originはプログラマー向けの記事投稿サイトです。
+* 誰でも投稿された記事を観覧することが可能です。
+* ログインすることで記事を作成、記事にコメントすることが出来ます。
+* 情報発信、日々のアウトプット等にお使いください。
 
-* Ruby version
+## 推奨されるシステム環境
 
-* System dependencies
+* Ubuntu 18.04.3
+* Ruby 2.5.7
+* Rails 5.2.4.1
+* sqlite3
 
-* Configuration
+## システムの利用
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ブラウザで以下の URL にアクセスしてください:
+  * 3.16.101.15
