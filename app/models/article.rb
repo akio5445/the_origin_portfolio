@@ -1,7 +1,6 @@
 class Article < ApplicationRecord
   validates :title, presence: { message: 'タイトルが空欄だよ？' }
   validates :description, presence: { message: '本文が空欄だよ？' }
-
   # ユーザーと関連
   belongs_to :user
   # 多くの記事コメントを持つ、諸共削除
@@ -14,7 +13,7 @@ class Article < ApplicationRecord
   end
 
   def self.search(search)
-    return Article.all.order(create_at: :desc) unless search
+    return Article.all.order(created_at: :desc) unless search
     Article.where(['title LIKE ?', "%#{search}%"],)
   end
 
