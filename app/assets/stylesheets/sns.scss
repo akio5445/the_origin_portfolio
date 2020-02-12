@@ -1,0 +1,94 @@
+/*--------sns-------*/
+#sosyal {
+    margin: 10px auto;
+    display: flex;
+}
+.facebook {
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.5);
+
+    margin: 2px;
+    position: relative;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.facebook:hover {
+    background-color: #354F84;
+}
+.facebook:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #1B3D82;
+}
+.twitter {
+    background: rgba(255,255,255,0.5);
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+
+    margin: 2px;
+    position: relative;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.twitter:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #0078BD;
+}
+.twitter:hover {
+    background-color: #1397D8;
+}
+.line {
+    background: rgba(255,255,255,0.5);
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+
+    margin: 2px;
+    position: relative;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.line:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #2dc715;
+}
+.line:hover {
+    background-color: #35de00ed;
+}
+.slack {
+    background: rgba(255,255,255,0.5);
+    box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+
+    margin: 2px;
+    position: relative;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.slack:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #720cb9;
+}
+.slack:hover {
+    background-color: #9401ffe8;
+}
+/*--------sns-------*/
