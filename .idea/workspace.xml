@@ -1,48 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="983012c8-798b-4566-a9d7-8356a9d254e4" name="Default Changelist" comment="403エラー画面を変更した&#10;&#10;* view/errors/forbidden_error.html.erbを追加しエラー時の表示を変更&#10; - @exceptionで引数に渡された（e）例外オブジェクトの種類によって表示を切り替えるようcase文を追加&#10;* application_controller.rbに例外を補足する記述を追加&#10; - +5class Forbiddenを定義&#10; - +6class IpAddressRejectedを定義&#10; - +9rescue_formで上記の例外発生時rescue403に処理が移行する&#10; - +10rescue_formで上記の例外発生時rescue403に処理が移行する&#10; - +13~privateとしてrescueの処理を追加 上記追加したviewにrenderするよう設定 status: 403 にてHTTPレスポンスのステータスコードを403に設定&#10; - 継承関係、エラーステータス説明コメントを追加&#10;  - # ActionController::ActionControllerError &lt; StandardError &lt; Exception">
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/article_comments.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/articles.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/sessions.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/top.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/users.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/article_comments.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/articles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/sessions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/top.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/article_comments_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/top_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/article_comments_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/articles_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/top_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/users_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/article_comment.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/article_comments/_index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/article_comments/index.js.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/shared/_footer.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/shared/_header.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/top/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/master.key" afterDir="false" />
+    <list default="true" id="983012c8-798b-4566-a9d7-8356a9d254e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/sessions_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/sessions_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200126105113_create_articles.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200126105113_create_articles.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/theorigin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/theorigin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/sns.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sns.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/sns.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sns.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/article_comments/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/article_comments/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/article_comments/_index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/article_comments/_index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/article_comments/index.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/article_comments/index.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/articles/_favorite.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/articles/_favorite.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/articles/_my_ranking.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/articles/_my_ranking.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/articles/_ranking.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/articles/_ranking.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/articles/_search.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/articles/_search.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/shared/_sns.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_sns.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/top/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/top/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/_archive.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_archive.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/archives.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/archives.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/views/paginate.ja.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/views/paginate.ja.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/article_comments.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/article_comments.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/articles.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/articles.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/users.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/system/feature_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/system/feature_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/system/requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/system/requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
