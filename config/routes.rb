@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   end
 
 # 月別アーカイブページ " /user/X/archives/20XX0X0X "
-  get  "/users/:id/archives/:yyyymm", to: "users#archives", as: :user_archive
+#  get  "/users/:id/archives/:yyyymm", to: "users#archives", as: :user_archive
 end
