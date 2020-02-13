@@ -21,13 +21,13 @@
           <%= render 'articles/favorite', article: article %>
         </div>
         <div>
-          <hr>
-          <!-- ページネーション -->
-          <%= paginate @articles %>
         </div>
           </tr>
       <% end %>
     </table>
+    <hr>
+    <!-- ページネーション -->
+    <%= paginate @articles %>
   </div>
   <div class="container_index">
     <%= render "shared/sns" %>
