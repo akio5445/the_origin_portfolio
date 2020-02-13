@@ -3,10 +3,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :archives]
 
   def archives
-    @yyyymm = params[:yyyymm]# 過去ログ一覧用
-    @articles = @user.articles.where("strftime('%Y%m', articles.created_at) = '"+@yyyymm+"'")
-                    .paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    @archives = @user.make_archive
+    #@yyyymm = params[:yyyymm]# 過去ログ一覧用
+    #@articles = @user.articles.where("strftime('%Y%m', articles.created_at) = '"+@yyyymm+"'")
+    #                .paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    #@archives = @user.make_archive
     # 検索フォーム
     @articles = Article.search(params[:search])
     # ページネーション
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def show                               # user詳細画面
     @article = Article.new
     #　月別アーカイブ
-    @archives = @user.make_archive
+    #@archives = @user.make_archive
   end
 
   def new                                #　新規登録画面
