@@ -1,5 +1,6 @@
 <p class="user"><%= "ニックネーム　　　　 #{@user.name}" %></p>
 <p class="user"><%= "メールアドレス #{@user.email}" %></p>
+<%= link_to "記事を書く", :new_article, class: "button" %>
 <div class="container_show">
   <% @user.articles.each do |article| %>
     <div class="container_article">
@@ -12,5 +13,5 @@
     <%= link_to "記事を書く", :new_article, class: "button" %>
   <% end %>
   <!-- 月別アーカイブ -->
-
+  <%= render "users/archive", archives: @archives %>
 </div>
