@@ -1,7 +1,7 @@
 <!-- 自分の評価したランキング -->
 <div class="my_ranking_side_index">
   <% my_ranks.each.with_index(1) do |article, i| %>
-    <%= "☆最近の素敵度 #{i}位" %>
+    <%= "☆お気に入り記事 #{i}位" %>
     <li><%= link_to article.title, article %></li>
   <% end %>
 </div>
