@@ -2,12 +2,12 @@ module ErrorHandlers
   extend ActiveSupport::Concern
   # 継承関係上上記の順番を変えてはいけない
   # ActionController::ActionControllerError < StandardError < Exception
-  included do
-    rescue_from StandardError, with: :rescue500
-    rescue_from ApplicationController::Forbidden, with: :rescue403
-    rescue_from ApplicationController::IpAddressRejected, with: :rescue403
-    rescue_from ActionController::ParameterMissing, with: :rescue400
-  end
+  # included do
+  #   rescue_from StandardError, with: :rescue500
+  #   rescue_from ApplicationController::Forbidden, with: :rescue403
+  #   rescue_from ApplicationController::IpAddressRejected, with: :rescue403
+  #   rescue_from ActionController::ParameterMissing, with: :rescue400
+  # end
     # 400はクライアントからのリクエストが正しくない時
   private def rescue400(e)
     render "errors/bad_request", status: 400
