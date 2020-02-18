@@ -1,3 +1,12 @@
+<% if @article.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li class="errors"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="container">
 <%= form_with model: @article, local: true do |f| %>
       <p><%= f.label :タイトル %></p>
