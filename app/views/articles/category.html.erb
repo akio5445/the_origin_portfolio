@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container_article">
-    <% @articles.each do |article| %>
+    <%  @article_category_id_in.each do |article| %>
       <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3><p>
       <div class="article_body"><%= markdown(article.description).html_safe %></div>
       <div class="comment">
@@ -8,7 +8,9 @@
         <!-- いいね機能 -->
         <%= render 'articles/favorite', article: article %>
         <!-- カテゴリー -->
-        <%= render 'articles/category', article: article %>
+        <% article.article_categories.each do |category| %>
+          <span class="article-category">#<%= category.name %></span>
+        <% end %>
       </div>
     <% end %>
     <div><hr>
@@ -22,18 +24,12 @@
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
+    <!-- カテゴリー -->
+
+
     <% if current_user %>
       <!-- 自分の評価したランキング -->
       <%= render "articles/my_ranking", my_ranks: @my_ranks %>
     <% end %>
-
-    <div class="ranking_side_index">
-    <hr>
-    <h4>カテゴリー</h4>
-      <% @categories.each do |category| %>
-        <li><%= category.name %></li>
-      <% end %>
-    </div>
-
   </div>
 </div>
