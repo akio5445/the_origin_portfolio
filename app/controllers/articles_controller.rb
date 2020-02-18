@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  skip_before_action :logged_in_user, only: [:index, :show, :search]
-  before_action :set_article, only: [:show, :edit, :update, :destroy,]
+  skip_before_action :logged_in_user, only: [:index, :show, :search, :category]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :category]
 
   def index                              # 記事一覧画面
     @article = Article.new
@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
     @articles = @articles.page(params[:page])
     # ランキング
     @all_ranks = Article.create_all_ranks
+    # カテゴリー
+    @categories = ArticleCategory.all
     if logged_in?
       # 自分のランキング
       @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
@@ -28,6 +30,22 @@ class ArticlesController < ApplicationController
       # 自分のランキング
       @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
     end
+  end
+
+  def category
+    @ids = @article.article_categories.ids
+    # 上記配列に含まれているIDを持つ他の記事を探してくる
+    @article_category_id_in = Article.category_id_in(@ids)
+    @articles = Article.search(params[:search])
+    # ページネーション
+    @articles = @articles.page(params[:page])
+    # ランキング
+    @all_ranks = Article.create_all_ranks
+    if logged_in?
+      # 自分のランキング
+      @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+    end
+
   end
 
   def edit                               # 記事編集画面
@@ -71,8 +89,9 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
-
+  # チェックボックスによって複数渡される場合があるため、配列ids: []
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title,
+      :description, article_category_ids: [])
   end
 end
