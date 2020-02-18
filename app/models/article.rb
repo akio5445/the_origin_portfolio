@@ -7,6 +7,13 @@ class Article < ApplicationRecord
   has_many :article_comments, dependent: :destroy
   # タイトル検索用メソッド
   has_many :favorites
+  #　カテゴリー
+  has_many :article_category_relations
+  has_many :article_categories, through: :article_category_relations
+  # 渡した配列に含まれているIDを持つ他の記事を探してくる
+  scope :category_id_in, -> article_category_ids {
+    joins(:article_categories).merge(ArticleCategory.id_in article_category_ids)
+  }
 
   def self.create_all_ranks # articleクラスからデータを取ってくる処理なのでクラスメソッド！
     Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
