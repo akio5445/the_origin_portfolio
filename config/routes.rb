@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/article_categories/:id/show', to: "articles#category",  as: :category
 # Aboutページ
   root "top#index"
 
