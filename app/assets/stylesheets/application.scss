@@ -17,8 +17,10 @@ body {
     margin: 0;
     font-family: sans-serif;
     z-index: 0;
-    background-color: slategray;
-    color: black;
+    background-image: image-url('mokume.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    color: #F7F7F7;
 }
 
 a {
@@ -26,15 +28,15 @@ a {
 }
 
 a:link {
-    color: black;
+    color: rgba(200, 255, 123, 0.8);
 }
 
 a:visited {
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(130, 255, 151, 0.5);
 }
 
 a:hover {
-    color: goldenrod;
+    color: gold;
     transition: all 0.5s ease-in;
 }
 
@@ -43,10 +45,9 @@ nav {
     margin: 0;
     padding: 17x 10px 20px 10px;
     list-style: none;
-    background-color: #F7F7F7;
+    background-color: black;
     box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.3);
-    opacity: 0.7;
-    transition: all 0.7s ease-out;
+    opacity: 0.8;
 }
 
 nav ul {
@@ -68,7 +69,7 @@ nav li a {
     font-size: 14px;
     color: #2E2F30;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(200, 255, 255, 0.3);
     box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.3);
     font-weight: bolder;
 }
@@ -89,14 +90,21 @@ textarea {
 }
 
 footer {
-    padding-top: 20px;
+    padding-top: 15px;
     padding-left: 50px;
-    color: #2E2F30;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 23px auto -50px auto;
+    padding: 17x 10px 20px 10px;
+    list-style: none;
+    background-color: black;
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0.7;
 }
 
 /*ボタン*/
 .button {
     border-style: none;
+    color: rgba(130, 255, 151, 0.8);
     background: rgba(255, 255, 255, 0.5);
     border-radius: 3px;
     box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.3);
@@ -146,17 +154,6 @@ footer {
     text-align: center;
     background-color: black;
     box-shadow: 0 3px 10px 6px rgba(0, 0, 0, 0.8);
-
-}
-
-.container_show {
-    margin: 20px auto 0 auto;
-    padding: 32px;
-    max-width: 600px;
-    z-index: 1;
-    background-color: white;
-    box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.4);
-    transition: all 0.7s ease-out;
 }
 
 .alticle-write {
@@ -170,7 +167,16 @@ footer {
     padding: 32px;
     max-width: 850px;
     z-index: 1;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
+}
+
+.container_show {
+    margin: 20px auto 0 auto;
+    padding: 32px;
+    max-width: 600px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.9);
     box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -202,7 +208,7 @@ footer {
 
 .article_body {
     line-height: 1.6;
-    color: black;
+    color: white;
     font-size: 12px;
     overflow-y: scroll;
     white-space: normal;
@@ -214,12 +220,13 @@ footer {
 
 .article_body_show {
     white-space: normal;
-    color: black;
+    color: white;
     overflow-wrap: break-word;
     padding: 5px 5px 0 5px;
     width: 560px;
     height: auto;
-    background: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
 }
 
 .container_index {
@@ -234,12 +241,12 @@ footer {
 
 .ranking_side_index {
     padding-top: 60px;
-    color: royalblue;
+    color: rgba(251, 215, 57, 0.9);
 }
 
 .my_ranking_side_index {
     padding-top: 20px;
-    color: royalblue;
+    color: rgba(251, 215, 57, 0.9);
 }
 
 .archive_index_side {
@@ -253,7 +260,7 @@ footer {
 .user {
     text-align: center;
     padding-right: 550px;
-    color: #666666;
+    color: rgba(255, 255, 255, 0.6);
     font-family: arial, sans-serif;
 }
 
@@ -280,7 +287,7 @@ footer {
 .comment {
     font-size: 11px;
     display: flex;
-    color: black;
+    color: white;
 }
 
 /*ログイン画面*/
@@ -326,7 +333,7 @@ footer {
 
 .category-title {
     margin: 0 0 5px 0;
-    color: black;
+    color: white;
 }
 
 .category-index {}
