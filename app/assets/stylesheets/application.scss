@@ -183,8 +183,10 @@ footer {
 
 .article_title {
     overflow-wrap: break-word;
+    font-size: 20px;
     font-weight: bold;
     padding: 10px;
+    margin: 5px 0 0 0;
     border-top: 1px solid #2097B6;
     border-left: 4px solid #2097B6;
     transition: all 0.9s ease-out;
@@ -316,8 +318,15 @@ footer {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
 }
 
-/*(・∀・)ｲｲﾈ!!*/
+/*カテゴリー*/
 .article-category {
     color: goldenrod;
     padding-right: 3px;
 }
+
+.category-title {
+    margin: 0 0 5px 0;
+    color: black;
+}
+
+.category-index {}
