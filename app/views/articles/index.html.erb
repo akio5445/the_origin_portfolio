@@ -29,9 +29,9 @@
 
     <div class="ranking_side_index">
     <hr>
-    <h4>カテゴリー</h4>
+    <h4 class="category-title">カテゴリー</h4>
       <% @categories.each do |category| %>
-        <p><%= category.name %></p>
+        <li class="category-index"><%= category.name %></li>
       <% end %>
     </div>
 
