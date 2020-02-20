@@ -8,20 +8,20 @@
   </div>
 <% end %>
 <div class="container">
-<%= form_with model: @article, local: true do |f| %>
-      <p><%= f.label :タイトル %></p>
-      <p><%= f.text_field :title, class: "text_field_title" %></p>
-      <p><%= f.label :記事 %></p>
-      <p><%= f.text_area :description %></p>
-      <p><hr>
-    <%= f.label :article_category, 'カテゴリ' %><br>
-    <%= f.collection_check_boxes(:article_category_ids, ArticleCategory.all, :id, :name) do |category| %> 
-      <%= category.label do %>
-        <%= category.check_box %>
-        <%= category.text %>
-      <% end %>
-    <% end %>
-    </p>
-      <p><%= f.submit class: "button" %></p>
-<% end %>
+	<%= form_with model: @article, local: true do |f| %>
+		<p><%= f.label :タイトル %></p>
+		<p><%= f.text_field :title, class: "text_field_title" %></p>
+		<p><%= f.label :記事 %></p>
+		<p><%= f.text_area :description %></p>
+		<p><hr>
+		<%= f.label :article_category, 'カテゴリ' %><br>
+		<%= f.collection_check_boxes(:article_category_ids, ArticleCategory.all, :id, :name) do |category| %> 
+			<%= category.label do %>
+				<%= category.check_box %>
+				<%= category.text %>
+			<% end %>
+		<% end %>
+		</p>
+		<p><%= f.submit class: "button" %></p>
+	<% end %>
 </div>
