@@ -2,18 +2,18 @@
   <div class="container_article">
     <h3 class="article_title"><%= @article.title %></h3>
     <div class="article_body_show"><%= markdown(@article.description).html_safe %></div><hr>
-    <!-- いいね機能 -->
-    <%= render 'articles/favorite', article: @article %>
-    <div id="article_comments_area">
-      <!-- 投稿されたコメント一覧を表示 -->
-      <%= render partial: 'article_comments/index', locals: { article_comments: @article_comments } %>
+    <div class="comment">
+      <!-- コメントカウント -->
+      コメント数: <%= ArticleComment.where(article_id: @article.id).count %>
+      <!-- いいね機能 -->
+      <%= render 'articles/favorite', article: @article %>
+      <!-- カテゴリー -->
+      <%= render 'articles/category', article: @article %>
     </div>
-    <div>
-      <% if logged_in? %>
-      　　<!-- コメント入力欄 -->
-        <%= render partial: 'article_comments/form', locals: { article_comment: @article_comment, article: @article } %>
-      <% end %>
-    </div>
+    <!-- 投稿されたコメント一覧を表示 -->
+    <%= render partial: 'article_comments/index', locals: { article_comments: @article_comments } %>
+  　<!-- コメント入力欄 -->
+    <%= render partial: 'article_comments/form', locals: { article_comment: @article_comment, article: @article } %>
   </div>
   <div class="container_index">
     <%= render "shared/sns" %>
@@ -21,9 +21,9 @@
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
-    <% if current_user %>
-      <!-- 自分の評価したランキング -->
-      <%= render "articles/my_ranking", my_ranks: @my_ranks %>
-    <% end %>
+    <!-- 自分の評価したランキング -->
+    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
+    <!-- カテゴリー -->
+    <%= render 'articles/side_categories', categories: @categories %>
   </div>
 </div>

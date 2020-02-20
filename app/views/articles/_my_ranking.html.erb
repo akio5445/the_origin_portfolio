@@ -1,7 +1,9 @@
 <!-- 自分の評価したランキング -->
-<div class="my_ranking_side_index">
-  <% my_ranks.each.with_index(1) do |article, i| %>
-    <%= "☆お気に入り記事 #{i}位" %>
-    <li><%= link_to article.title, article %></li>
-  <% end %>
-</div>
+<% if current_user %>
+  <div class="my_ranking_side_index">
+    <% my_ranks.each.with_index(1) do |article, i| %>
+      <%= "☆お気に入り記事 #{i}位" %>
+      <li><%= link_to article.title, article %></li>
+    <% end %>
+  </div>
+<% end %>

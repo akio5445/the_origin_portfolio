@@ -1,0 +1,6 @@
+<div class="category-side-index">
+  <h4 class="category-title"><%= link_to "カテゴリー", articles_path %></h4>
+  <% @categories.each do |category| %>
+    <li class="category-index"># <%= link_to "#{category.name}",each_category_path(id: category,name: "#{category.name}") %></li>
+  <% end %>
+</div>

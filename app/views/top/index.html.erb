@@ -1,29 +1,23 @@
 <div class="container">
   <div class="container_article">
     <table>
-      <% unless current_user %>
-        <tr>
-          <div class="about">
-            <h2>＃ Welcome!</h2>
-            <p>このサイトはプログラミング関連の記事を観覧作成出来ます！</p>
-            <p>ちょっとしたメモ帳替わり！日々のアウトプットのため！</p>
-            <p>なんでも気軽に載せてください！</p>
-            <p>記事の投稿、記事へのコメントは適当にログインしてくださいね！</p><hr>
-          </div>
-        </tr>
-      <% end %>
-      <tr><% @articles.each do |article| %>
+      <!-- about -->
+      <%= render "about" %>
+      <tr>
+      <% @articles.each do |article| %>
         <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3>
         <div class="article_body"><%= markdown(article.description).html_safe %></div>
         <div class="comment">
+          <!-- コメントカウント -->
           コメント数: <%= ArticleComment.where(article_id: article.id).count %>
           <!-- いいね機能 -->
           <%= render 'articles/favorite', article: article %>
+          <% article.article_categories.each do |category| %>
+            <span class="article-category">#<%= category.name %></span>
+          <% end %>
         </div>
-        <div>
-        </div>
-          </tr>
       <% end %>
+      </tr>
     </table>
     <hr>
     <!-- ページネーション -->
@@ -31,13 +25,13 @@
   </div>
   <div class="container_index">
     <%= render "shared/sns" %>
-  　　<!-- 検索フォーム -->
+  　<!-- 検索フォーム -->
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
-    <% if current_user %>
-      <!-- 自分の評価したランキング -->
-      <%= render "articles/my_ranking", my_ranks: @my_ranks %>
-    <% end %>
+    <!-- 自分の評価したランキング -->
+    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
+    <!-- カテゴリー -->
+    <%= render 'articles/side_categories', categories: @categories %>
   </div>
 </div>

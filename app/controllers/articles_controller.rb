@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
-  skip_before_action :logged_in_user, only: [:index, :show, :search, :category]
-  before_action :set_article, only: [:show, :edit, :update, :destroy, :category]
+  skip_before_action :logged_in_user, only: [
+    :index, :show, :search, :category, :each_category]
+  before_action :set_article, only: [
+    :show, :edit, :update, :destroy, :category]
 
   def index                              # 記事一覧画面
     @article = Article.new
@@ -26,6 +28,8 @@ class ArticlesController < ApplicationController
     @articles = Article.search(params[:search])
     # ランキング
     @all_ranks = Article.create_all_ranks
+    # カテゴリー
+    @categories = ArticleCategory.all
     if logged_in?
       # 自分のランキング
       @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
@@ -45,10 +49,25 @@ class ArticlesController < ApplicationController
       # 自分のランキング
       @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
     end
+  end
 
+  def each_category
+    @name = ArticleCategory.find(params[:id])
+    # 上記のIDを持つ他の記事を探してくる
+    @article_category_id_in = Article.category_id_in(@name)
+    @articles = Article.search(params[:search])
+    # ページネーション
+    @articles = @articles.page(params[:page])
+    # ランキング
+    @all_ranks = Article.create_all_ranks
+    if logged_in?
+      # 自分のランキング
+      @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
+    end
   end
 
   def edit                               # 記事編集画面
+
   end
 
   def new                                # 記事作成画面
@@ -93,5 +112,8 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title,
       :description, article_category_ids: [])
+  end
+  def article_category_params
+    params.require(:article_category).permit(:name)
   end
 end
