@@ -24,12 +24,9 @@
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
+    <!-- 自分の評価したランキング -->
+    <%= render "articles/my_ranking", my_ranks: @my_ranks %>
     <!-- カテゴリー -->
-
-
-    <% if current_user %>
-      <!-- 自分の評価したランキング -->
-      <%= render "articles/my_ranking", my_ranks: @my_ranks %>
-    <% end %>
+    <%= render 'articles/side_categories', categories: @categories %>
   </div>
 </div>

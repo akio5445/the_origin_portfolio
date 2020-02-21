@@ -60,6 +60,8 @@ class ArticlesController < ApplicationController
     @articles = @articles.page(params[:page])
     # ランキング
     @all_ranks = Article.create_all_ranks
+    # カテゴリー
+    @categories = ArticleCategory.all
     if logged_in?
       # 自分のランキング
       @my_ranks = @all_ranks.select{ |article| article.user_id == current_user.id }
