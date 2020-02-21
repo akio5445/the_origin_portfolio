@@ -9,15 +9,16 @@
       <%= render 'articles/favorite', article: @article %>
       <!-- カテゴリー -->
       <%= render 'articles/category', article: @article %>
-    </div>
+  </div>
     <!-- 投稿されたコメント一覧を表示 -->
     <%= render partial: 'article_comments/index', locals: { article_comments: @article_comments } %>
   　<!-- コメント入力欄 -->
     <%= render partial: 'article_comments/form', locals: { article_comment: @article_comment, article: @article } %>
   </div>
   <div class="container_index">
+    <!-- SNS共有 -->
     <%= render "shared/sns" %>
-  　 <!-- 検索フォーム -->
+    <!-- 検索フォーム -->
     <%= render "articles/search", articles: @articles %>
     <!-- ランキング -->
     <%= render "articles/ranking", all_ranks: @all_ranks %>
