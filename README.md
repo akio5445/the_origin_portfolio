@@ -27,12 +27,12 @@
   * Gem
     * "kaminari" ( ページネーション )
     * "redcarpet", "~> 2.3.0" ( マークダウン記法 )
-    * gem 'rouge'　( コード着色 )
+    * "rouge"　( コード着色 )
   ### テスト
   * RSpec
-    * 
-    * 
-    * 
+    * E2Eテスト(system spec)
+      * "/.webdrivers/chromedriver/"
+    * 結合テスト(request spec)
   #### フロントエンド
   * CSS
   * JavaScript
