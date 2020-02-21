@@ -27,7 +27,12 @@
   * Gem
     * "kaminari" ( ページネーション )
     * "redcarpet", "~> 2.3.0" ( マークダウン記法 )
-    * "coderay"　( コード着色 )
+    * gem 'rouge'　( コード着色 )
+  ### テスト
+  * RSpec
+    * 
+    * 
+    * 
   #### フロントエンド
   * CSS
   * JavaScript

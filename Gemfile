@@ -22,7 +22,7 @@ gem "kaminari"
 
 # markdouwm
 gem 'redcarpet', '~> 2.3.0'
-gem 'coderay'
+gem 'rouge'
 
 
 group :development, :test do
