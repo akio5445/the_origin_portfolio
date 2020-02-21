@@ -33,7 +33,6 @@ RSpec.describe "記事投稿機能", type: :system do
     end
   end
 
-
   describe "articles#index記事一覧表示機能" do
     context "ユーザーAがログインしている時" do
       let(:login_user) { user_a }
