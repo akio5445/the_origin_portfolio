@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container_article">
     <h3 class="article_title"><%= @article.title %></h3>
-    <div class="article_body_show"><%= markdown(@article.description).html_safe %></div><hr>
+    <div class="article_body_show"><%= toc(@article.description) %><%= markdown(@article.description) %></div><hr>
     <div class="comment">
       <!-- コメントカウント -->
       コメント数: <%= ArticleComment.where(article_id: @article.id).count %>

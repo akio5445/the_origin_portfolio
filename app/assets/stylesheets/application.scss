@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import 'rouge';
+// <%= Rouge::Themes::Base16.render(:scope => '.highlight') %>
+
 body {
     margin: 0;
     font-family: sans-serif;
