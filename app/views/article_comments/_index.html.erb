@@ -3,7 +3,7 @@
     <% unless article_comment.id.nil? %>
     <div>
       <span><%= link_to "@#{article_comment.user.name}さん(; ･`д･´)φメモメモ", user_path(article_comment.user.id) %></span>
-      <p><%= markdown(article_comment.content).html_safe %></p>
+      <p><%= toc(article_comment.content) %><%= markdown(article_comment.content) %></p>
     </div>
       <% if article_comment.user == current_user %>
         <p><%= link_to 'Delete', article_article_comment_path(article_comment.article_id, article_comment.id), method: :delete, remote: true, id: "delete_button" %></p>
