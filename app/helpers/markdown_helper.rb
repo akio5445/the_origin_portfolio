@@ -5,7 +5,7 @@ class HTML < Redcarpet::Render::HTML
 end
 
 module MarkdownHelper
-  def markdown(text)
+  def markdown(description)
     options = {
       # htmlを出力しない
       filter_html:   true,
@@ -44,16 +44,16 @@ module MarkdownHelper
       @markdown = Redcarpet::Markdown.new(renderer, extensions)
     end
 
-    @markdown.render(text).html_safe
+    @markdown.render(description).html_safe
   end
 
-  def toc(text)
+  def toc(description)
     toc_option = {
       nesting_level: 1
     }
 
     toc_renderer = Redcarpet::Render::HTML_TOC.new
     toc = Redcarpet::Markdown.new(toc_renderer, toc_option)
-    toc.render(text).html_safe
+    toc.render(description).html_safe
   end
 end

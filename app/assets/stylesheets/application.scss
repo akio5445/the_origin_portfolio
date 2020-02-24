@@ -227,11 +227,14 @@ footer p {
     box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
 }
 
-.container_article {
-    flex: 0 0 550px;
-    margin: 8px auto 0 0;
-    padding: 15px 20px 15px 10px;
-    max-width: 550px;
+.view {
+    color: rgb(255, 225, 58);
+}
+
+.container-v p {
+    flex: 1 1 auto;
+    max-width: 450px;
+    overflow-wrap: break-word;
 }
 
 .article_title {
