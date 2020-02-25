@@ -16,9 +16,7 @@
   <p><%= f.label :記事 %></p>
   <p><%= f.text_area :description, rows: 5, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "article[description]" %></p>
   <div class="container-v">
-  <h5 class="view">プレビュー</h5>
     <div v-html='input | marked'></div>
-  </div>
   <p><hr>
     <%= f.label :article_category, 'カテゴリ' %><br>
     <%= f.collection_check_boxes(:article_category_ids, ArticleCategory.all, :id, :name) do |category| %> 
