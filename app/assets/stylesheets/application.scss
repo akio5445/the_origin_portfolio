@@ -14,8 +14,8 @@
  *= require_self
  */
 @import 'rouge';
-// <%= Rouge::Themes::Base16.render(:scope => '.highlight') %>
 
+// <%= Rouge::Themes::Base16.render(:scope => '.highlight') %>
 body {
     margin: 0;
     font-family: sans-serif;
@@ -395,3 +395,32 @@ footer p {
 }
 
 .category-index {}
+
+
+/*****************************************************************/
+@media screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        margin: 20px auto 0 auto;
+        padding: 0 5px 0 5px;
+        max-width: 850px;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .container_show {
+        margin: 20px auto 0 auto;
+        padding: 0 5px 0 5px;
+        max-width: 850px;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-rogo {
+        color: 000;
+        background-color: darkgray;
+        z-index: 100;
+    }
+}
