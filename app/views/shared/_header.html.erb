@@ -1,15 +1,15 @@
 <header>
   <nav>
     <ul>
-      <li class="logo"><%= link_to "THE ORIGIN", root_path, class: "header_button" %></li>
+      <li class="logo"><%= link_to "THE ORIGIN", root_path, class: "header_button, header-rogo", id: "profile-btn" %></li>
       <%= content_tag(:span, flash.notice, class: "notice") if flash.notice %>
       <%= content_tag(:span, flash.alert, class: "alert") if flash.alert %>
-      <li><%= link_to "記事一覧", :articles, class: "header_button" %></li>
+      <li><%= link_to "記事一覧", :articles, class: "header_button", id: "profile-btn" %></li>
       <% if current_user %>
-        <li><%= link_to "ログアウト", :logout, method: :delete, class: "header_button" %></li>
-        <li><%= link_to "アカウント", user_path(current_user), class: "header_button"  %></li>
+        <li><%= link_to "ログアウト", :logout, method: :delete, class: "header_button", id: "profile-btn" %></li>
+        <li><%= link_to "アカウント", user_path(current_user), class: "header_button", id: "profile-btn"  %></li>
       <% else %>
-        <li><%= link_to "ログイン", :login, class: "header_button" %></li>
+        <li><%= link_to "ログイン", :login, class: "header_button", id: "profile-btn" %></li>
       <% end %>
     </ul>
   </nav>
