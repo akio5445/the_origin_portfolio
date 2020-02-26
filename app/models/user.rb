@@ -8,4 +8,11 @@ class User < ApplicationRecord
   # 多くの記事コメントと関連、諸共削除
   has_many :article_comments, dependent: :destroy
   has_many :favorites
+
+  # 与えられた文字列のハッシュ値を返す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

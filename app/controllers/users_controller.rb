@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   def create                             # 新規登録
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash.notice = "登録完了しました！"
-      redirect_to login_path
+      redirect_to @user
     else
       flash.now.alert = "登録に失敗しました！"
       render 'new'
