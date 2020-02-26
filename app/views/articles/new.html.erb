@@ -7,17 +7,13 @@
     </ul>
   </div>
 <% end %>
-
-<div class="container">
-<%= form_with model:@article, local: true do |f| %>
-  <p><%= f.label :タイトル %></p>
-  <p><%= f.text_field :title, class: "text_field_title", id: "blog_title" %></p>
-  <div id='editor'>
-  <p><%= f.label :記事 %></p>
-  <p><%= f.text_area :description, rows: 5, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "article[description]" %></p>
-  <div class="container-v">
-    <div v-html='input | marked'></div>
-  <p><hr>
+ <div class="container">
+  <%= form_with model: @article, url: :articles, local: true do |f| %>
+    <p><%= f.label :タイトル %></p>
+    <p><%= f.text_field :title, class: "text_field_title" %></p>
+    <p><%= f.label :記事 %></p>
+    <p><%= f.text_area :description %></p>
+    <p><hr>
     <%= f.label :article_category, 'カテゴリ' %><br>
     <%= f.collection_check_boxes(:article_category_ids, ArticleCategory.all, :id, :name) do |category| %> 
       <%= category.label do %>
@@ -25,23 +21,7 @@
         <%= category.text %>
       <% end %>
     <% end %>
-  </p>
-  <%= f.submit "登録する", class: "button" %>
-</div>
-<% end %>
-
-<!-- リアルタイムプレビュー -->
-<script type="text/javascript">
-window.onload = function() {
-new Vue({
-  el: '#editor',
-  data: {
-    input: '<%== j @article.description %>',
-  },
-  filters: {
-    marked: marked,
-  },
-});
-};
-</script>
-</div>
+    </p>
+    <p><%= f.submit "登録する", class: "button" %></p>
+  <% end %>
+</div> 
