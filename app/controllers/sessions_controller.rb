@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       flash.notice = "ログインしたよ！( *´艸｀)"
       redirect_to root_url
     else
+      flash.now[:danger] = 'メールアドレスが間違っているかパスワードが違います'
       render 'new'
     end
   end
