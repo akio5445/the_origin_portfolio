@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [
     :show, :edit, :update, :destroy, :category]
 
+
   def index                              # 記事一覧画面
     @article = Article.new
     #　検索フォーム
