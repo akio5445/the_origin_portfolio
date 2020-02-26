@@ -1,16 +1,15 @@
 <div class="container">
-  <div class="container_article">
+  <div class="container-article">
     <%  @article_category_id_in.each do |article| %>
       <h3 class="article_title"><%= link_to article.title, article_path(article) %></h3><p>
       <div class="article_body"><%= markdown(article.description).html_safe %></div>
       <div class="comment">
+        <!-- コメントカウント -->
         コメント数: <%= ArticleComment.where(article_id: article.id).count %>
         <!-- いいね機能 -->
         <%= render 'articles/favorite', article: article %>
         <!-- カテゴリー -->
-        <% article.article_categories.each do |category| %>
-          <span class="article-category">#<%= category.name %></span>
-        <% end %>
+        <%= render 'articles/category', article: article %>
       </div>
     <% end %>
     <div><hr>
@@ -19,6 +18,7 @@
     </div>
   </div>
   <div class="container_index">
+    <!-- SNS共有 -->
     <%= render "shared/sns" %>
     <!-- 検索フォーム -->
     <%= render "articles/search", articles: @articles %>
