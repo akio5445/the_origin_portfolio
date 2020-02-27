@@ -116,6 +116,11 @@ footer p {
     padding: 0;
 }
 
+.notice {
+    padding: 10px 10px 0 0;
+    color: deepskyblue;
+}
+
 /*topに戻るボタン*/
 #pageTop {
     position: fixed;
@@ -403,6 +408,22 @@ footer p {
 
 .category-index {}
 
+
+/*ログイン*/
+.checkbox {
+    margin-top: -10px;
+    margin-bottom: 10px;
+
+    span {
+        margin-left: 20px;
+        font-weight: normal;
+    }
+}
+
+#session_remember_me {
+    width: auto;
+    margin-left: 0;
+}
 
 /*****************************************************************/
 @media screen and (max-width: 600px) {
