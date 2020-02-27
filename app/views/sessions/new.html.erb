@@ -6,6 +6,10 @@
       <p><%= f.email_field :email %></p>
       <p><%= f.label :password %></p>
       <p><%= f.password_field :password %></p>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>リメンバーミー</span>
+      <% end %>
       <p><%= f.submit "ログインする", class: "button"%>
     <% end %>
     <%= link_to "新規登録", new_user_path, class: "button" %>
