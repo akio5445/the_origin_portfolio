@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+  attr_accessor :remember_token
   validates :name, presence: { message: 'が空欄だよ？' }
   validates :email, presence: { message: 'が空欄だよ？' }
   validates :password, presence: { message: 'きゃんとびいぶらんく☆' }
@@ -20,5 +20,11 @@ class User < ApplicationRecord
   # ランダムなトークン
   def self.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  # 永続的セッションで使用するユーザーをデータベースに記憶する
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
   end
 end
