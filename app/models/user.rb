@@ -11,14 +11,14 @@ class User < ApplicationRecord
   has_many :favorites
 
   # 与えられた文字列のハッシュ値を返す
-  def self.digest(string)
+  def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
   
   # ランダムなトークン
-  def self.new_token
+  def User.new_token
     SecureRandom.urlsafe_base64
   end
 
