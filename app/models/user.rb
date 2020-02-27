@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   validates :name, presence: { message: 'が空欄だよ？' }
   validates :email, presence: { message: 'が空欄だよ？' }
   validates :password, presence: { message: 'きゃんとびいぶらんく☆' }
@@ -10,9 +11,14 @@ class User < ApplicationRecord
   has_many :favorites
 
   # 与えられた文字列のハッシュ値を返す
-  def User.digest(string)
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+  
+  # ランダムなトークン
+  def self.new_token
+    SecureRandom.urlsafe_base64
   end
 end
