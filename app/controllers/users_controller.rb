@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   skip_before_action :logged_in_user, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :archives]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   def show                               # user詳細画面
     @article = Article.new
   end
 
   def new                                #　新規登録画面
     @user = User.new
+  end
+
+  def edit
   end
 
   def create                             # 新規登録
@@ -19,6 +22,12 @@ class UsersController < ApplicationController
       flash.now.alert = "登録に失敗しました！"
       render 'new'
     end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
