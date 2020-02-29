@@ -2,7 +2,7 @@
   <% article_comments.each do |article_comment| %>
     <% unless article_comment.id.nil? %>
     <div>
-      <span><%= link_to "@#{article_comment.user.name}さん(; ･`д･´)φメモメモ", user_path(current_user) %></span>
+      <span><%= "@#{article_comment.user.name}さん(; ･`д･´)φメモメモ" %></span>
       <p><%= toc(article_comment.content) %><%= markdown(article_comment.content) %></p>
     </div>
       <% if article_comment.user == current_user %>
