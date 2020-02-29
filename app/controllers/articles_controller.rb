@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :category]
   before_action :logged_in_user, only: [:new ,:create, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:new ,:create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:new ,:create, :edit, :update, :destroy]
 
   def index                              # 記事一覧画面
     @article = Article.new

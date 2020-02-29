@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :create, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:show, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :create, :edit, :update, :destroy]
   def show                               # user詳細画面
     @article = Article.new
   end
