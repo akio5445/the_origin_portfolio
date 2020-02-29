@@ -1,9 +1,7 @@
 class ArticlesController < ApplicationController
-  skip_before_action :logged_in_user, only: [
-    :index, :show, :search, :category, :each_category]
-  before_action :set_article, only: [
-    :show, :edit, :update, :destroy, :category]
-
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :category]
+  before_action :logged_in_user, only: [:new ,:create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:new ,:create, :edit, :update, :destroy]
 
   def index                              # 記事一覧画面
     @article = Article.new
@@ -70,7 +68,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit                               # 記事編集画面
-
   end
 
   def new                                # 記事作成画面
@@ -116,7 +113,21 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title,
       :description, article_category_ids: [])
   end
+
   def article_category_params
     params.require(:article_category).permit(:name)
+  end
+
+  def logged_in_user
+    unless logged_in?
+      flash.notice = "ログインして下さい"
+      redirect_to login_url
+    end
+  end
+
+  # 正しいユーザーかどうか確認
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

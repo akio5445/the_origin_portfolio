@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
-  before_action :logged_in_user
 
   class Forbidden < ActionController::ActionControllerError; end
   class IpAddressRejected < ActionController::ActionControllerError; end
