@@ -1,0 +1,4 @@
+<h4><%= link_to "記事一覧", :articles, class: "header_button" %></h4>
+<% side_articles.each do |article| %>
+  <li><%= link_to article.title, article %></li>
+<% end %>

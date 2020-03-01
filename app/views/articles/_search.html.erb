@@ -3,7 +3,7 @@
   <%= text_field_tag :search %>
   <%= submit_tag 'Search', :name => nil, class: "button_search"%>
 <% end %>
-<h4><%= link_to "記事一覧", :articles, class: "header_button" %></h4>
+<h4 class="iine">最新記事</h4>
 <% articles.each do |article| %>
   <li><%= link_to article.title, article %></li>
 <% end %>

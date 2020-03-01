@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
     @articles = Article.search(params[:search])
     # ページネーション
     @articles = @articles.page(params[:page])
+    # 記事一覧
+    @side_articles = Article.all
     # ランキング
     @all_ranks = Article.create_all_ranks
     # カテゴリー
@@ -28,6 +30,8 @@ class ArticlesController < ApplicationController
     @article_comments = @article.article_comments
     #　検索フォーム
     @articles = Article.search(params[:search])
+    # 記事一覧
+    @side_articles = Article.all
     # ランキング
     @all_ranks = Article.create_all_ranks
     # カテゴリー
