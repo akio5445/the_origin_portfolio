@@ -430,10 +430,43 @@ footer p {
 }
 
 /*****************************************************************/
-@media screen and (max-width: 600px) {
-    .container {
+@media screen and (max-width: 680px) {
+    body a {
+        font-size: 0.3em;
+    }
+
+    div.container {
         display: flex;
-        margin: 20px auto 0 auto;
+        margin: 0 auto 0 auto;
+        padding: 0;
+        max-width: 850px;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    div.container-article {
+        flex: 0 0 420px;
+        margin: 0 auto 0 0;
+        padding: 15px 15px 15px 10px;
+        max-width: 420px;
+    }
+
+    div.article_body_show {
+        font-size: 0.4em;
+        max-width: 420px;
+    }
+
+    div h3.article_title a {
+        font-size: 0.4em;
+    }
+
+    h3.article_title {
+        padding: 0 0 0 10px;
+    }
+
+    div.container_show {
+        margin: 0 auto 0 auto;
         padding: 0 5px 0 5px;
         max-width: 850px;
         z-index: 1;
@@ -441,18 +474,54 @@ footer p {
         box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
     }
 
-    .container_show {
-        margin: 20px auto 0 auto;
-        padding: 0 5px 0 5px;
-        max-width: 850px;
-        z-index: 1;
-        background-color: rgba(0, 0, 0, 0.9);
-        box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
+    div.article_body {
+        max-width: 420px;
+        font-size: 0.3em;
+    }
+
+    div.container_index {
+        margin: 8px;
+        max-width: 230px;
+        font-size: 0.2em;
+        padding: 13px 10px 15px 10px;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        flex-direction: column;
+        list-style: circle;
+        transition: all 0.8s ease-out;
     }
 
     .header-rogo {
         color: 000;
-        background-color: darkgray;
-        z-index: 100;
+        z-index: 20;
+        background-color: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    header nav li a {
+        font-size: 0.1em;
+        padding: 5px;
+    }
+
+    header nav li {}
+
+    header nav ul {
+        padding: 0;
+        display: flex;
+        margin: 5px;
+    }
+
+    header nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    header nav li.logo {}
+
+    footer p {
+        font-size: 0.1em;
     }
 }
+
+/*****************************************************************/
+@media screen and (max-width: 400px) {}
