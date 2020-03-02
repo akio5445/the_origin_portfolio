@@ -1,0 +1,32 @@
+<div class="container_show">
+<table class="user-edit-table">
+  <tbody>
+    <tr>
+      <td><%= "ニックネーム  #{current_user.name}" %></td>
+    </tr>
+      <td><%= "メールアドレス  #{current_user.email}" %></td>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="container_show">
+  <% @users.each do |user| %>
+    <div class="container-article">
+        <table class="user-edit-table">
+  <tbody>
+    <tr>
+      <td><%= "ニックネーム  #{user.name}" %></td>
+    </tr>
+      <td><%= "メールアドレス  #{user.email}" %></td>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    <%= link_to "編集", user_path(user), class: "button" %>
+    <% if current_user.admin? && !current_user?(user) %>
+      <%= link_to "delete", user, method: :delete, data: { confirm: "本当にいいの?" } %>
+    <% end %>
+  <% end %>
+</div>

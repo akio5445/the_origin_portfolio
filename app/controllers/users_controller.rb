@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     :show, :edit, :update, :destroy]
   before_action :correct_user, only: [
     :show, :edit, :update, :destroy]
+
+  def index
+    @users = User.all
+  end
+
   def show                               # user詳細画面
     @article = Article.new
   end
