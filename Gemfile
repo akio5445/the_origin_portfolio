@@ -18,7 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # ページネーション
 gem "kaminari"
 # markdouwm
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'rouge'
 
 group :development, :test do
